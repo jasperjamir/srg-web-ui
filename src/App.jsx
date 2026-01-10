@@ -286,7 +286,7 @@ function SRG() {
                 <div className="text-center p-8">
                   <HeartHandshake className="w-20 h-20 text-[#7ad03a] mx-auto mb-4" />
                   <p className="text-[#2f5220] font-medium">
-                    Empowering Grassroots Organizations
+                  Empowering Organizations in your Philanthropic Journey
                   </p>
                 </div>
               </div>
