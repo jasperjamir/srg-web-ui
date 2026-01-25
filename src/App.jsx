@@ -774,7 +774,7 @@ function SRG() {
                 <p className="text-white/80 uppercase tracking-widest font-semibold text-sm mb-2">
                   Starting Investment
                 </p>
-                <div className="text-5xl font-bold text-white mb-2">$3,200</div>
+                <div className="text-5xl font-bold text-white mb-2">$3,500</div>
                 <p className="text-[#2f5220] font-bold mb-8 bg-[#f2f9ed] px-4 py-1 rounded-full">
                   Your first step toward sustainability
                 </p>
