@@ -565,7 +565,7 @@ function SRG() {
             <div className="mt-12 pt-8 border-t border-white/20 grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
               <div>
                 <p className="text-3xl md:text-4xl font-bold text-white">
-                  100+
+                  210+
                 </p>
                 <p className="text-sm text-white/80 mt-1">
                   Organizations Helped
