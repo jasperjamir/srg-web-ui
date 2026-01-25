@@ -90,6 +90,9 @@ function SRG() {
     'Social Ministries',
     'Hospitals & Missions',
     'NGOs & Nonprofits',
+    'Family Foundations',
+    'Impact Funders',
+    'Corporate Foundations',
   ]
 
   // Gradients
@@ -281,14 +284,12 @@ function SRG() {
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
             <div className="w-full md:w-1/2 relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-[#2f5220] to-[#7ad03a] rounded-3xl transform rotate-3 scale-105 opacity-10"></div>
-              <div className="relative bg-[#f2f9ed] rounded-3xl overflow-hidden shadow-xl aspect-video md:aspect-square flex items-center justify-center border border-[#dce8d0]">
-                {/* Abstract placeholder for mission image */}
-                <div className="text-center p-8">
-                  <HeartHandshake className="w-20 h-20 text-[#7ad03a] mx-auto mb-4" />
-                  <p className="text-[#2f5220] font-medium">
-                  Empowering Organizations in your Philanthropic Journey
-                  </p>
-                </div>
+              <div className="relative bg-[#f2f9ed] rounded-3xl overflow-hidden shadow-xl aspect-video md:aspect-square flex items-center justify-center border border-[#dce8d0] group cursor-pointer">
+                <img
+                  src="https://springrainglobal.org/wp-content/uploads/2026/01/607001329_1167542252213001_7895299748943138730_n-1.jpg"
+                  alt="Spring Rain Global Founder"
+                  className="w-full h-full object-contain scale-[1.1] group-hover:scale-110 transition-all duration-700 ease-in-out"
+                />
               </div>
             </div>
             <div className="w-full md:w-1/2">
@@ -404,7 +405,7 @@ function SRG() {
             <div className="flex flex-col lg:flex-row">
               <div className="lg:w-3/5 p-10 md:p-16">
                 <h3 className="text-3xl font-bold mb-6">
-                  Build Your Philanthropy Development Office (PDO)
+                  Build Your Philanthropic Development Office (PDO)
                 </h3>
                 <p className="text-white/95 text-lg mb-8">
                   Stop chasing one-time donations. Build a system that
@@ -456,7 +457,7 @@ function SRG() {
                 <p className="text-white/80 uppercase tracking-widest font-semibold text-sm mb-2">
                   Starting Investment
                 </p>
-                <div className="text-5xl font-bold text-white mb-2">$1,200</div>
+                <div className="text-5xl font-bold text-white mb-2">$3,200</div>
                 <p className="text-[#2f5220] font-bold mb-8 bg-[#f2f9ed] px-4 py-1 rounded-full">
                   Your first step toward sustainability
                 </p>
