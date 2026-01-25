@@ -799,7 +799,7 @@ function SRG() {
       <section className="py-16 bg-[#f2f9ed]">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-[#2f5220] mb-4">
-            Trusted by 100+ Organizations
+            Trusted by 210+ Organizations
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-12">
             We work alongside global development organizations, philanthropic
