@@ -17,10 +17,13 @@ import {
   Briefcase,
   Database,
   Sun,
+  ExternalLink,
+  ChevronDown,
 } from 'lucide-react'
 
 function SRG() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isOldSiteMenuOpen, setIsOldSiteMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   // Handle scroll for navbar styling
@@ -31,6 +34,19 @@ function SRG() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close old site menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOldSiteMenuOpen && !event.target.closest('.old-site-menu-container')) {
+        setIsOldSiteMenuOpen(false)
+      }
+    }
+    if (isOldSiteMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOldSiteMenuOpen])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -158,19 +174,315 @@ function SRG() {
             >
               Contact Us
             </a>
+            {/* Hidden Old Site Menu Button */}
+            <div className="relative old-site-menu-container">
+              <button
+                onClick={() => setIsOldSiteMenuOpen(!isOldSiteMenuOpen)}
+                className={`p-2 rounded-full transition ${
+                  scrolled
+                    ? 'text-gray-600 hover:bg-gray-100'
+                    : 'text-white/70 hover:bg-white/10'
+                }`}
+                aria-label="Old website menu"
+              >
+                <ExternalLink className="w-5 h-5" />
+              </button>
+              {isOldSiteMenuOpen && (
+                <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 py-4 max-h-[80vh] overflow-y-auto z-50">
+                  <div className="px-4 pb-2 border-b border-gray-200">
+                    <h3 className="text-sm font-bold text-[#2f5220] uppercase tracking-wider">
+                      Previous Website Links
+                    </h3>
+                  </div>
+                  <div className="px-2 py-2">
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Company
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/company-new/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        Company (New)
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/company/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        Company
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Partners
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/partners/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        Partners
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/our-strategic-partners/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        Strategic Partners
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Team
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/about-ceo/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        About CEO
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/meet-the-team-2/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        Meet the Team
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Publications
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/events/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        Events
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/publications/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        Publications
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Other Services
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/srg-philanthropy-ai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        SRG Philanthropy AI
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Contact & Support
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/contact-us/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        Contact Us
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/faqs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                      >
+                        FAQs
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-          {/* Mobile Menu Button */}
-          <button className="md:hidden focus:outline-none" onClick={toggleMenu}>
-            {isMenuOpen ? (
-              <X
-                className={`w-8 h-8 ${scrolled ? 'text-[#2f5220]' : 'text-white'}`}
-              />
-            ) : (
-              <Menu
-                className={`w-8 h-8 ${scrolled ? 'text-[#2f5220]' : 'text-white'}`}
-              />
-            )}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            {/* Hidden Old Site Menu Button - Mobile */}
+            <div className="relative old-site-menu-container">
+              <button
+                onClick={() => setIsOldSiteMenuOpen(!isOldSiteMenuOpen)}
+                className={`p-2 rounded-full transition ${
+                  scrolled ? 'text-[#2f5220]' : 'text-white'
+                }`}
+                aria-label="Old website menu"
+              >
+                <ExternalLink className="w-6 h-6" />
+              </button>
+              {isOldSiteMenuOpen && (
+                <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 py-4 max-h-[80vh] overflow-y-auto z-50">
+                  <div className="px-4 pb-2 border-b border-gray-200">
+                    <h3 className="text-sm font-bold text-[#2f5220] uppercase tracking-wider">
+                      Old Website Links
+                    </h3>
+                  </div>
+                  <div className="px-2 py-2">
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Company
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/company-new/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        Company (New)
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/company/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        Company
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Partners
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/partners/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        Partners
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/our-strategic-partners/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        Strategic Partners
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Team
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/about-ceo/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        About CEO
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/meet-the-team-2/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        Meet the Team
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Publications
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/events/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        Events
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/publications/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        Publications
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Other Services
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/srg-philanthropy-ai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        SRG Philanthropy AI
+                      </a>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+                        Contact & Support
+                      </h4>
+                      <a
+                        href="https://springrainglobal.org/contact-us/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        Contact Us
+                      </a>
+                      <a
+                        href="https://springrainglobal.org/faqs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                        onClick={() => setIsOldSiteMenuOpen(false)}
+                      >
+                        FAQs
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <button className="focus:outline-none" onClick={toggleMenu}>
+              {isMenuOpen ? (
+                <X
+                  className={`w-8 h-8 ${scrolled ? 'text-[#2f5220]' : 'text-white'}`}
+                />
+              ) : (
+                <Menu
+                  className={`w-8 h-8 ${scrolled ? 'text-[#2f5220]' : 'text-white'}`}
+                />
+              )}
+            </button>
+          </div>
         </div>
         {/* Mobile Dropdown */}
         {isMenuOpen && (
@@ -284,13 +596,18 @@ function SRG() {
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
             <div className="w-full md:w-1/2 relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-[#2f5220] to-[#7ad03a] rounded-3xl transform rotate-3 scale-105 opacity-10"></div>
-              <div className="relative bg-[#f2f9ed] rounded-3xl overflow-hidden shadow-xl aspect-video md:aspect-square flex items-center justify-center border border-[#dce8d0] group cursor-pointer">
+              <a
+                href="https://springrainglobal.org/about-ceo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative bg-[#f2f9ed] rounded-3xl overflow-hidden shadow-xl aspect-video md:aspect-square flex items-center justify-center border border-[#dce8d0] group cursor-pointer block"
+              >
                 <img
                   src="https://springrainglobal.org/wp-content/uploads/2026/01/607001329_1167542252213001_7895299748943138730_n-1.jpg"
                   alt="Spring Rain Global Founder"
                   className="w-full h-full object-contain scale-[1.1] group-hover:scale-110 transition-all duration-700 ease-in-out"
                 />
-              </div>
+              </a>
             </div>
             <div className="w-full md:w-1/2">
               <h4 className="text-[#7ad03a] font-bold uppercase tracking-wider mb-2">
