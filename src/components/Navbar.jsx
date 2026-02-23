@@ -3,40 +3,30 @@ import { Menu, X, ExternalLink } from 'lucide-react'
 
 const OLD_SITE_LINKS = [
   {
-    label: 'Company',
+    label: 'About us',
     items: [
-      { href: 'https://springrainglobal.org/company-new/', label: 'Company (New)' }
+      { href: 'https://springrainglobal.org/company-new/', label: 'Company' },
+      { href: 'https://springrainglobal.org/about-ceo/', label: 'About CEO' },
+      { href: 'https://springrainglobal.org/meet-the-team-2/', label: 'Meet the Team' },
     ],
   },
   {
-    label: 'Partners',
+    label: 'Partnerships',
     items: [
       { href: 'https://springrainglobal.org/partners/', label: 'Partners' },
       { href: 'https://springrainglobal.org/our-strategic-partners/', label: 'Strategic Partners' },
     ],
   },
   {
-    label: 'Team',
-    items: [
-      { href: 'https://springrainglobal.org/about-ceo/', label: 'About CEO' },
-      { href: 'https://springrainglobal.org/meet-the-team-2/', label: 'Meet the Team' },
-    ],
-  },
-  {
-    label: 'Publications',
+    label: 'Resources',
     items: [
       { href: 'https://springrainglobal.org/events/', label: 'Events' },
       { href: 'https://springrainglobal.org/publications/', label: 'Publications' },
-    ],
-  },
-  {
-    label: 'Other Services',
-    items: [
       { href: 'https://springrainglobal.org/srg-philanthropy-ai/', label: 'SRG Philanthropy AI' },
     ],
   },
   {
-    label: 'Contact & Support',
+    label: 'Get in touch',
     items: [
       { href: 'https://springrainglobal.org/contact-us/', label: 'Contact Us' },
       { href: 'https://springrainglobal.org/faqs/', label: 'FAQs' },
