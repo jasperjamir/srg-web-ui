@@ -17,6 +17,9 @@ import {
 
 import Navbar from './components/Navbar'
 
+const FACEBOOK_URL = 'https://www.facebook.com/springrainglobal'
+const MEMBERSHIP_URL = 'https://springrainglobal.org/membership/'
+
 function SRG() {
   // Updated Color Palette - "Organic & Growth"
   // #7ad03a (Main Action Green - Bright & Energetic)
@@ -120,7 +123,7 @@ function SRG() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="https://www.facebook.com/springrainglobal"
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-[#2f5220] px-8 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-[#f2f9ed] transition transform hover:-translate-y-1 flex items-center justify-center gap-2"
@@ -128,10 +131,12 @@ function SRG() {
                 Start Your Journey <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href="#model"
-                className="bg-black/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-black/30 transition flex items-center justify-center"
+                href={MEMBERSHIP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-white/50 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition flex items-center justify-center"
               >
-                How It Works
+                Be a Member
               </a>
             </div>
             <div className="mt-12 pt-8 border-t border-white/20 grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
@@ -274,14 +279,24 @@ function SRG() {
               <p className="text-white/80 text-sm mb-4">
                 Integrate these pillars into your organization today.
               </p>
-              <a
-                href="https://www.facebook.com/springrainglobal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#7ad03a] hover:bg-[#5ea828] text-white font-bold py-2 px-6 rounded-lg transition text-sm shadow-lg"
-              >
-                Get Started
-              </a>
+              <div className="flex flex-wrap justify-center gap-3">
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#7ad03a] hover:bg-[#5ea828] text-white font-bold py-2 px-6 rounded-lg transition text-sm shadow-lg"
+                >
+                  Get Started
+                </a>
+                <a
+                  href={MEMBERSHIP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block border-2 border-white/70 text-white font-bold py-2 px-6 rounded-lg hover:bg-white/10 transition text-sm"
+                >
+                  Be a Member
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -351,12 +366,20 @@ function SRG() {
                   Your first step toward sustainability
                 </p>
                 <a
-                  href="https://www.facebook.com/springrainglobal"
+                  href={FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${buttonGradient} w-full py-4 rounded-xl font-bold text-lg text-white shadow-lg flex items-center justify-center gap-2`}
                 >
                   Message Us Now <MessageCircle className="w-5 h-5" />
+                </a>
+                <a
+                  href={MEMBERSHIP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-4 rounded-xl font-bold text-lg border-2 border-white/60 text-white hover:bg-white/10 transition flex items-center justify-center mt-3"
+                >
+                  Be a Member
                 </a>
                 <p className="text-xs text-white/70 mt-4">
                   Via WhatsApp / Messenger
@@ -426,15 +449,25 @@ function SRG() {
               Join the network of organizations breaking the cycle of poverty
               through sustainable systems.
             </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://www.facebook.com/springrainglobal"
+              href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${buttonGradient} inline-flex items-center gap-3 text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:scale-105 transition-transform`}
+              className={`${buttonGradient} inline-flex items-center justify-center gap-3 text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:scale-105 transition-transform`}
             >
               <Facebook className="w-6 h-6" />
               Message Us on Facebook
             </a>
+            <a
+              href={MEMBERSHIP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 text-[#2f5220] font-bold text-xl px-10 py-5 rounded-full border-2 border-[#2f5220] hover:bg-[#2f5220] hover:text-white transition"
+            >
+              Be a Member
+            </a>
+            </div>
           </div>
         </div>
       </section>
@@ -479,7 +512,7 @@ function SRG() {
                 </li>
                 <li>
                   <a
-                    href="https://springrainglobal.org/membership/"
+                    href={MEMBERSHIP_URL}
                     className="hover:text-[#7ad03a] transition"
                   >
                     Membership
@@ -492,7 +525,7 @@ function SRG() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
-                    href="https://www.facebook.com/springrainglobal"
+                    href={FACEBOOK_URL}
                     className="hover:text-[#7ad03a] transition"
                   >
                     Facebook

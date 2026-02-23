@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Menu, X, ExternalLink } from 'lucide-react'
 
+const MEMBERSHIP_URL = 'https://springrainglobal.org/membership/'
+const FACEBOOK_URL = 'https://www.facebook.com/springrainglobal'
+
 const OLD_SITE_LINKS = [
   {
     label: 'About us',
@@ -136,7 +139,19 @@ export default function Navbar() {
             Benefits
           </a>
           <a
-            href="https://www.facebook.com/springrainglobal"
+            href={MEMBERSHIP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`font-bold py-2 px-4 rounded-full border-2 transition ${
+              scrolled
+                ? 'border-[#7ad03a] text-[#7ad03a] hover:bg-[#7ad03a] hover:text-white'
+                : 'border-white/80 text-white hover:bg-white/10'
+            }`}
+          >
+            Be a Member
+          </a>
+          <a
+            href={FACEBOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={`px-5 py-2 rounded-full font-bold transition shadow-lg ${
@@ -219,7 +234,15 @@ export default function Navbar() {
             Benefits
           </a>
           <a
-            href="https://www.facebook.com/springrainglobal"
+            href={MEMBERSHIP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full text-center border-2 border-[#7ad03a] text-[#2f5220] py-3 rounded-lg font-bold hover:bg-[#f2f9ed]"
+          >
+            Be a Member
+          </a>
+          <a
+            href={FACEBOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full text-center bg-[#7ad03a] text-white py-3 rounded-lg font-bold"
