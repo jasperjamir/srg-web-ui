@@ -16,7 +16,7 @@ const OLD_SITE_LINKS = [
   {
     label: 'Partnerships',
     items: [
-      { href: 'https://springrainglobal.org/partners/', label: 'Partners' },
+      { href: 'https://springrainglobal.org/partners/', label: 'Outreach Partners' },
       { href: 'https://springrainglobal.org/our-strategic-partners/', label: 'Strategic Partners' },
     ],
   },
