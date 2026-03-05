@@ -11,6 +11,14 @@ const OLD_SITE_LINKS = [
       { href: 'https://springrainglobal.org/company-new/', label: 'Company' },
       { href: 'https://springrainglobal.org/about-ceo/', label: 'About CEO' },
       { href: 'https://springrainglobal.org/meet-the-team-2/', label: 'Meet the Team' },
+      {
+        href: 'https://springrainglobal.org/advisory-boar-members/',
+        label: 'Advisory Board Members',
+      },
+      {
+        href: 'https://springrainglobal.org/pdo-ecosystem-officers/',
+        label: 'PDO Ecosystem Officers',
+      },
     ],
   },
   {
@@ -48,7 +56,7 @@ function OldSiteDropdown({ onLinkClick, title = 'Previous Website Links' }) {
       <div className="px-2 py-2">
         {OLD_SITE_LINKS.map((section) => (
           <div key={section.label} className="mb-3">
-            <h4 className="text-xs font-semibold text-gray-500 uppercase px-3 py-2">
+            <h4 className="px-3 pt-2 pb-1 text-[11px] font-semibold tracking-wide text-gray-400 uppercase cursor-default">
               {section.label}
             </h4>
             {section.items.map((item) => (
@@ -57,7 +65,7 @@ function OldSiteDropdown({ onLinkClick, title = 'Previous Website Links' }) {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-3 py-2 text-sm text-gray-700 hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded transition"
+                className="block pl-7 pr-3 py-1.5 text-sm text-gray-700 font-medium hover:bg-[#f2f9ed] hover:text-[#7ad03a] rounded-md transition"
                 onClick={onLinkClick}
               >
                 {item.label}
